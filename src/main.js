@@ -2,11 +2,11 @@ import Vue from 'vue'
 import App from './App'
 import Login from './components/Login'
 import Timeline from './components/Timeline'
+import Edit from './components/Edit'
+import Add from './components/Add'
 var VueRouter = require('vue-router')
 
 Vue.use(VueRouter)
-
-
 
 const routes = [
   { path: '/', component: App, name: 'home',
@@ -20,7 +20,17 @@ const routes = [
 	  		name: 'login',
 	  		path: 'login',
 	  		component: Login
-	  	}
+	  	}, 
+			{
+	  		name: 'edit',
+	  		path: 'edit/:id',
+	  		component: Edit
+	  	}, 
+			{
+	  		name: 'add',
+	  		path: 'add',
+	  		component: Add
+	  	},
 	  ]
 	},
 ]

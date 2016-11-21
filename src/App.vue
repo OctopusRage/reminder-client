@@ -42,6 +42,8 @@ export default {
         this.$router.push({ name: 'login'});
     } else {
         this.$router.push({ name: 'dashboard'});
+        this.isActiveNavbarAfter = true;
+        this.isActiveNavbarFront = false;
     }
   },
   data() {
@@ -68,7 +70,7 @@ export default {
       toggleRegister();
       toggleLogin();
     },
-    loginSucceed(res) {
+    changeNavbar() {
       this.toggleNavbarAfter();
       this.toggleNavbarFront();
     }
