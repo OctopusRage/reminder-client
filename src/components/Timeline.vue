@@ -45,12 +45,17 @@ export default {
     console.log(token)
     request.get("http://reminder-engine.herokuapp.com/users/schedules")
       .set({"Authorization": "Token token="+token})
-      .end(function(res){
-        if(res.status==200) {
-          var x = response.body.data;
-          self.schedules = x;
+      .set({'Content-Type': 'application/json'})
+      .end(function(err, res){
+        if (err) {
+            console.log(err)
         } else {
-          alert("hahahaha");
+            if (res.status==200) {
+                console.log(res)
+                self.schedules = res.body.data
+            } else {
+                console.log(res)
+            }
         }
       });
   }
